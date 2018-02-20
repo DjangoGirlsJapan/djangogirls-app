@@ -7,6 +7,6 @@ RUN mkdir djangogirls
 WORKDIR djangogirls
 
 RUN python -m venv myvenv
-COPY entrypoint.sh entrypoint.sh
+COPY . ./
 
-CMD ["chmod", "+x", "/djangogirls/entrypoint.sh"]
+RUN /bin/bash -c "source myvenv/bin/activate; pip install -r requirements.txt"
